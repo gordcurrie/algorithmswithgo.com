@@ -14,17 +14,14 @@ import (
 //   DecToBase(14, 16) => "E"
 //   DecToBase(14, 2) => "1110"
 //
+//
 func DecToBase(dec, base int) string {
 	output := strings.Builder{}
-	more := true
-	for more {
+	for dec > 0 {
 		remainder := dec % base
 		output.WriteString(convertInt(remainder))
 
 		dec = dec / base
-		if dec == 0 {
-			more = false
-		}
 	}
 
 	return Reverse(output.String())
